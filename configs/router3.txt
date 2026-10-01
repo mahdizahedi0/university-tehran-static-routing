@@ -1,0 +1,21 @@
+! Router3
+! Internal transit router between Router4 and Router5
+
+enable
+configure terminal
+
+interface fa0/0
+ ip address 10.0.0.2 255.255.255.252
+ no shutdown
+ exit
+
+interface fa0/1
+ ip address 10.0.0.5 255.255.255.252
+ no shutdown
+ exit
+
+ip route 192.168.10.0 255.255.255.0 10.0.0.1
+ip route 192.168.20.0 255.255.255.0 10.0.0.6
+
+end
+write memory
